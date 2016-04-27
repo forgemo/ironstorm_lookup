@@ -1,0 +1,8 @@
+[package]
+name = "ironstorm_lookup"
+version = "0.1.0"
+authors = ["Mohammed El Batya <elbatya@googlemail.com>"]
+
+[dependencies]
+suffix = "0.3"
+itertools = "0.4"
