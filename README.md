@@ -1,6 +1,6 @@
 # ironstorm_lookup
 
-[![Build Status](https://travis-ci.org/forgemo/ironstorm_lookup.svg?branch=master)](https://travis-ci.org/forgemo/ironstream_lookup)
+[![Build Status](https://travis-ci.org/forgemo/ironstorm_lookup.svg?branch=master)](https://travis-ci.org/forgemo/ironstorm_lookup)
 
 Overview
 ---------
