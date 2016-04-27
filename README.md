@@ -2,6 +2,10 @@
 
 ## Overview
 
+[![Build Status](https://travis-ci.org/forgemo/ironstorm_lookup.svg?branch=master)](https://travis-ci.org/forgemo/ironstorm_lookup)
+
+## Overview
+
 This library contains the internal data structure used by the ironstrom project
 
 To learn more about ironstorm_lookup, read this README.md and the [Crate Documentation](http://forgemo.github.io/docs/ironstorm_lookup/ironstorm_lookup)
@@ -112,8 +116,13 @@ assert!(result_iter.next().is_none());
 
 Licensed under either of
 
-- Apache License, Version 2.0, (<LICENSE-APACHE> or <http://www.apache.org/licenses/LICENSE-2.0>)
-- MIT license (<LICENSE-MIT> or <http://opensource.org/licenses/MIT>)
+- Apache License, Version 2.0, (
+
+  <license-apache> or <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a>)</license-apache>
+
+- MIT license (
+
+  <license-mit> or <a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a>)</license-mit>
 
 at your option.
 
