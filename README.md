@@ -1,5 +1,7 @@
 # ironstorm_lookup
 
+[![Build Status](https://travis-ci.org/forgemo/ironstream_lookup.svg?branch=master)](https://travis-ci.org/forgemo/ironstream_lookup)
+
 Overview
 ---------
 This library contains the internal data structure used by the ironstrom project
