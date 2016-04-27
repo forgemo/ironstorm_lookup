@@ -42,11 +42,13 @@ Let's build a `LookupTable` to find restaurants by name.
 ```rust
 use std::iter::FromIterator;
 use ironstorm_lookup::{LookupTable, Lookup, Bucket};
+
 // 1. Create a custom struct representing a restaurant
 struct Restaurant<'a> {
     name: &'a str,
     cuisine: &'a str
 }
+
 // 2. Implement the `Lookup` trait for `Restaurant` references
 impl <'a> Lookup for &'a Restaurant<'a> {
     // Make the restaurant name searchable
@@ -65,6 +67,7 @@ impl <'a> Lookup for &'a Restaurant<'a> {
         }
     }
 }
+
 // 3. Create some restaurants and the according iterator
 let restaurants = vec![
     Restaurant{name:"India Man", cuisine:"indian"},
@@ -74,24 +77,31 @@ let restaurants = vec![
     Restaurant{name:"Brezel Hut", cuisine:"german"}
 ];
 let iter = restaurants.iter();
+
 // 4. Create the `LookupTable`
 let lookup_table = ironstorm_lookup::LookupTable::from_iter(iter);
+
 // 5. Find restaurants containing `i`
 let mut result_iter = lookup_table.find("i");
+
 // two times 'Italiano pizza', because it's in the lowest bucket
 // two times because it has two lower case `i` in the name
 assert_eq!(result_iter.next().unwrap().name, "Italiano Pizza");
 assert_eq!(result_iter.next().unwrap().name, "Italiano Pizza");
+
 // 'Sushi House', because it's in the second lowest bucket
 assert_eq!(result_iter.next().unwrap().name, "Sushi House");
+
 // 'Ami Guy' or ' India Man'
 // They are in the same bucket and there is no order within the same bucket
 let indian_or_american_1 = result_iter.next().unwrap().name;
 assert!(indian_or_american_1=="India Man" || indian_or_american_1=="Ami Guy");
+
 // The other one of 'Ami Guy' or ' India Man'
 let indian_or_american_2 = result_iter.next().unwrap().name;
 assert!(indian_or_american_2=="India Man" || indian_or_american_2=="Ami Guy");
 assert!(indian_or_american_1 != indian_or_american_2);
+
 // No more matches
 // "Brezel Hut" doesn't contain an "i" and was not part of the result.
 assert!(result_iter.next().is_none());
