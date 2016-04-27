@@ -1,7 +1,5 @@
 # ironstorm_lookup
 
-## Overview
-
 [![Build Status](https://travis-ci.org/forgemo/ironstorm_lookup.svg?branch=master)](https://travis-ci.org/forgemo/ironstorm_lookup) [![](http://meritbadge.herokuapp.com/ironstorm_lookup)](https://crates.io/crates/ironstorm_lookup) ![license: Apache2+MIT](https://img.shields.io/badge/license-Apache2%2BMIT-brightgreen.svg)
 ![rurst: nightly](https://img.shields.io/badge/rust-nightly-orange.svg)
 
