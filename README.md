@@ -5,7 +5,7 @@
 
 ## Overview
 
-This library contains the internal data structure used by the ironstrom project
+This library contains the internal data structure used by the [ironstrom](https://github.com/forgemo/ironstorm) project
 
 To learn more about ironstorm_lookup, read this README.md and the [Crate Documentation](http://forgemo.github.io/docs/ironstorm_lookup/ironstorm_lookup)
 
