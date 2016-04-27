@@ -1,6 +1,6 @@
 # ironstorm_lookup
 
-[![Build Status](https://travis-ci.org/forgemo/ironstorm_lookup.svg?branch=master)](https://travis-ci.org/forgemo/ironstorm_lookup) [![](http://meritbadge.herokuapp.com/ironstorm_lookup)](https://crates.io/crates/ironstorm_lookup) ![license: Apache2+MIT](https://img.shields.io/badge/license-Apache2%2BMIT-brightgreen.svg)
+[![Build Status](https://travis-ci.org/forgemo/ironstorm_lookup.svg?branch=master)](https://travis-ci.org/forgemo/ironstorm_lookup) [![](http://meritbadge.herokuapp.com/ironstorm_lookup)](https://crates.io/crates/ironstorm_lookup) [![license: Apache2+MIT](https://img.shields.io/badge/license-Apache2%2BMIT-brightgreen.svg)](https://github.com/forgemo/ironstorm_lookup/blob/master/README.md#license)
 ![rurst: nightly](https://img.shields.io/badge/rust-nightly-orange.svg)
 
 ## Overview
@@ -114,16 +114,9 @@ assert!(result_iter.next().is_none());
 ## License
 
 Licensed under either of
-
-- Apache License, Version 2.0, (
-
-  <license-apache> or <a href="http://www.apache.org/licenses/LICENSE-2.0">http://www.apache.org/licenses/LICENSE-2.0</a>)</license-apache>
-
-- MIT license (
-
-  <license-mit> or <a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a>)</license-mit>
-
-at your option.
+ * Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
+ * MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
+at your option
 
 ### Contribution
 
