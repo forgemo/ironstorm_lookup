@@ -6,7 +6,7 @@ This library contains the internal data structure used by the ironstrom project
 
 To learn more about ironstorm_lookup, read this README.md and the [Crate Documentation](http://forgemo.github.io/docs/ironstorm_lookup/ironstorm_lookup)
 
-It only compiles with the nightly version of rust due tu usage of unstable features.
+It compiles only with the nightly version of rust due tu usage of unstable features.
 
 Design goals
 ---------------
