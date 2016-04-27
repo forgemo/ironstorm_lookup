@@ -8,7 +8,7 @@
 //!
 //! Design goals
 //! ---------------
-//! - Lightening fast auto completion / type ahead lookups (~200 microseconds! per lookup)
+//! - Lightning fast auto completion / type ahead lookups (~200 microseconds! per lookup)
 //! - Not too much searchable text per entry, e.g: street names for locations or movie titles for movies
 //! - High number of possible candidates (multiple gigabytes)
 //! - It can be recommended, but must not be rquired to fit the whole data set into physical memory

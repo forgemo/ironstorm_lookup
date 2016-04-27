@@ -1,16 +1,16 @@
 # ironstorm_lookup
 
-Overview
----------
+## Overview
+
 This library contains the internal data structure used by the ironstrom project
 
 To learn more about ironstorm_lookup, read this README.md and the [Crate Documentation](http://forgemo.github.io/docs/ironstorm_lookup/ironstorm_lookup)
 
 It compiles only with the nightly version of rust due tu usage of unstable features.
 
-Design goals
----------------
-- Lightening fast auto completion / type ahead lookups (~200 microseconds! per lookup)
+## Design goals
+
+- Lightning fast auto completion / type ahead lookups (~200 microseconds! per lookup)
 - Not too much searchable text per entry, e.g: street names for locations or movie titles for movies
 - High number of possible candidates (multiple gigabytes)
 - It can be recommended, but must not be rquired to fit the whole data set into physical memory
@@ -22,36 +22,35 @@ Design goals
 - Only one dimensional coarse sorting required, e.g: Fantasy books should be returnd before science fiction books
 - Lazy stream/iterator based lookup implementation
 
-Accepted drawbacks
-------------------
+## Accepted drawbacks
+
 - Creating a `LookupTable` for multiple gigabytes of data can take a few minutes
 - A `LookupTable` can not be modified, only recreated
 - No fine granular sorting possible: e.g: by lexicographical order
 
-Basic Usage
------
+## Basic Usage
+
 1. Create a custom type for the data you want to seacrh for, e.g.: a `Movie` struct
 2. Implement the `Lookup` trait for your custom type.
 3. Create an `Iterator` that will iterate over all the elements you would like to put into the `LookupTable`
 4. Create a new `LookupTable` by calling `LookupTable::from_iter(myMoviesIterator)`
 5. Call `myMoviesLookupTable.find("hero")` to get an lazy 'Iterator' over all matching elements
 
+## Example
 
-
-Example
--------
 Let's build a `LookupTable` to find restaurants by name.
+
 ```rust
 use std::iter::FromIterator;
 use ironstorm_lookup::{LookupTable, Lookup, Bucket};
 
-// 1. Create a custom struct representing a restaurant
+// 1\. Create a custom struct representing a restaurant
 struct Restaurant<'a> {
     name: &'a str,
     cuisine: &'a str
 }
 
-// 2. Implement the `Lookup` trait for `Restaurant` references
+// 2\. Implement the `Lookup` trait for `Restaurant` references
 impl <'a> Lookup for &'a Restaurant<'a> {
     // Make the restaurant name searchable
     fn searchable_text(&self) -> String {
@@ -70,7 +69,7 @@ impl <'a> Lookup for &'a Restaurant<'a> {
     }
 }
 
-// 3. Create some restaurants and the according iterator
+// 3\. Create some restaurants and the according iterator
 let restaurants = vec![
     Restaurant{name:"India Man", cuisine:"indian"},
     Restaurant{name:"Ami Guy", cuisine:"american"},
@@ -80,10 +79,10 @@ let restaurants = vec![
 ];
 let iter = restaurants.iter();
 
-// 4. Create the `LookupTable`
+// 4\. Create the `LookupTable`
 let lookup_table = ironstorm_lookup::LookupTable::from_iter(iter);
 
-// 5. Find restaurants containing `i`
+// 5\. Find restaurants containing `i`
 let mut result_iter = lookup_table.find("i");
 
 // two times 'Italiano pizza', because it's in the lowest bucket
@@ -109,18 +108,15 @@ assert!(indian_or_american_1 != indian_or_american_2);
 assert!(result_iter.next().is_none());
 ```
 
-
 ## License
 
 Licensed under either of
 
- * Apache License, Version 2.0, ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
- * MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
+- Apache License, Version 2.0, (<LICENSE-APACHE> or <http://www.apache.org/licenses/LICENSE-2.0>)
+- MIT license (<LICENSE-MIT> or <http://opensource.org/licenses/MIT>)
 
 at your option.
 
 ### Contribution
 
-Unless you explicitly state otherwise, any contribution intentionally submitted
-for inclusion in the work by you, as defined in the Apache-2.0 license, shall be dual licensed as above, without any
-additional terms or conditions.
+Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in the work by you, as defined in the Apache-2.0 license, shall be dual licensed as above, without any additional terms or conditions.
