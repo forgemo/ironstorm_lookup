@@ -2,6 +2,7 @@
 name = "ironstorm_lookup"
 version = "0.1.0"
 authors = ["Mohammed El Batya <elbatya@googlemail.com>"]
+license = "MIT OR Apache-2.0"
 
 [dependencies]
 suffix = "0.3"
