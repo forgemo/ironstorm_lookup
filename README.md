@@ -5,11 +5,11 @@
 
 ## Overview
 
-This library contains the internal data structure used by the ironstrom project
+This library contains the internal data structure used by the [ironstrom](https://github.com/forgemo/ironstorm) project
 
 To learn more about ironstorm_lookup, read this README.md and the [Crate Documentation](http://forgemo.github.io/docs/ironstorm_lookup/ironstorm_lookup)
 
-It compiles only with the nightly version of rust due tu usage of unstable features.
+It compiles only with the nightly version of rust due to usage of unstable features.
 
 ## Design goals
 
@@ -47,13 +47,13 @@ Let's build a `LookupTable` to find restaurants by name.
 use std::iter::FromIterator;
 use ironstorm_lookup::{LookupTable, Lookup, Bucket};
 
-// 1\. Create a custom struct representing a restaurant
+// 1. Create a custom struct representing a restaurant
 struct Restaurant<'a> {
     name: &'a str,
     cuisine: &'a str
 }
 
-// 2\. Implement the `Lookup` trait for `Restaurant` references
+// 2. Implement the `Lookup` trait for `Restaurant` references
 impl <'a> Lookup for &'a Restaurant<'a> {
     // Make the restaurant name searchable
     fn searchable_text(&self) -> String {
@@ -72,7 +72,7 @@ impl <'a> Lookup for &'a Restaurant<'a> {
     }
 }
 
-// 3\. Create some restaurants and the according iterator
+// 3. Create some restaurants and the according iterator
 let restaurants = vec![
     Restaurant{name:"India Man", cuisine:"indian"},
     Restaurant{name:"Ami Guy", cuisine:"american"},
@@ -82,10 +82,10 @@ let restaurants = vec![
 ];
 let iter = restaurants.iter();
 
-// 4\. Create the `LookupTable`
+// 4. Create the `LookupTable`
 let lookup_table = ironstorm_lookup::LookupTable::from_iter(iter);
 
-// 5\. Find restaurants containing `i`
+// 5. Find restaurants containing `i`
 let mut result_iter = lookup_table.find("i");
 
 // two times 'Italiano pizza', because it's in the lowest bucket
@@ -115,8 +115,8 @@ assert!(result_iter.next().is_none());
 
 Licensed under either of
 
- * Apache License, Version 2.0 ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
- * MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
+ * Apache License, Version 2.0 http://www.apache.org/licenses/LICENSE-2.0
+ * MIT license http://opensource.org/licenses/MIT
 
 at your option
 
