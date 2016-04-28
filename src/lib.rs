@@ -179,9 +179,13 @@ impl <'a, A: Lookup>FromIterator<A> for LookupTable<'a, A>{
 impl <'a, V>LookupTable<'a, V> where V: Lookup{
 
     fn get_value_for_position(&self, bucket: Bucket, text_position: TextPosition) -> &V{
-        let value =self.position_map.range(Unbounded, Included(&(bucket,(text_position as usize)))).rev().next().unwrap();
-        let (&(_, _), value) = value;
-        value
+        if let Some(value) = self.position_map.range(Unbounded, Included(&(bucket,(text_position as usize)))).rev().next() {
+            let (&(_, _), value) = value;
+            value
+        }else {
+            panic!("Could not find at least one value in position map.
+                    This must be a bug! Please report it on https://github.com/forgemo/ironstorm_lookup/issues");
+        }
     }
 
     /// Searches for `Lookup` entries with a `serachable_text` that contains the given `search_text`.
