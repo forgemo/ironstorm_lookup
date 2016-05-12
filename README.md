@@ -5,7 +5,7 @@
 
 ## Overview
 
-This library contains the internal data structure used by the [ironstrom](https://github.com/forgemo/ironstorm) project
+This library contains the internal data structure used by the [ironstorm](https://github.com/forgemo/ironstorm) project
 
 To learn more about ironstorm_lookup, read this README.md and the [Crate Documentation](http://forgemo.github.io/docs/ironstorm_lookup/ironstorm_lookup)
 
@@ -20,7 +20,7 @@ It compiles only with the nightly version of rust due to usage of unstable featu
 - The LookupTable should use virtual memory and OS level optimization to handle larger data sets
 - Full text search capability
 - Optimized for hardly ever changing data sets, e.g.: All streets in a country
-- No mulithreading if not absolutely required => Buy lookup speed with memory, not processing power!
+- No multithreading if not absolutely required => Buy lookup speed with memory, not processing power!
 - Optimize for returning a small number of matches, e.g: Find first 10 of 2 million movies that contain 'hero'
 - Only one dimensional coarse sorting required, e.g: Fantasy books should be returnd before science fiction books
 - Lazy stream/iterator based lookup implementation
