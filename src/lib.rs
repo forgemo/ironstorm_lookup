@@ -148,7 +148,7 @@ pub trait Lookup {
 /// To create a new `LookupTable` instance, you first have to create an Iterator over some `Lookup` items.
 /// Having that iterator, you can call `LookupTable::from_iter(myLookupItemIterator)``.
 pub struct LookupTable<'a, V: 'a>  where V: Lookup{
-    suffix_table_map: BTreeMap<Bucket, SuffixTable<'a>>,
+    suffix_table_map: BTreeMap<Bucket, SuffixTable<'a,'a>>,
     position_map: BTreeMap<(Bucket, TextPosition), V>
 }
 
