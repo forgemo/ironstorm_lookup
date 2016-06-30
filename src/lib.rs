@@ -127,6 +127,8 @@ pub type Bucket = usize;
 
 type TextPosition = usize;
 
+const SEPARATOR: &'static str = "\u{FFFF}";
+
 /// Implement this trait for types that are going be put into a `LookupTable`
 pub trait Lookup {
 
@@ -162,7 +164,7 @@ impl <'a, A: Lookup>FromIterator<A> for LookupTable<'a, A>{
             let pos: TextPosition = text.len();
 
             text.push_str(&value.searchable_text().as_str());
-            text.push_str("$");
+            text.push_str(SEPARATOR);
 
             position_map.insert((value.bucket(), pos), value);
         }
