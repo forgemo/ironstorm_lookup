@@ -1,6 +1,6 @@
 [package]
 name = "ironstorm_lookup"
-version = "1.0.2"
+version = "1.0.4"
 authors = ["Mohammed El Batya"]
 license = "MIT OR Apache-2.0"
 description     = "Lightning fast lookup table for auto completion, type ahead, suggestion engines."
@@ -12,5 +12,5 @@ keywords        = ["lookup", "suggestion", "typeahead",  "completion", "suffix"]
 
 
 [dependencies]
-suffix = "0.4"
-itertools = "0.4"
+suffix = "1.*"
+itertools = "0.5.4"

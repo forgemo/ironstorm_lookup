@@ -130,7 +130,7 @@ type TextPosition = usize;
 const SEPARATOR: &'static str = "\u{FFFF}";
 
 /// Implement this trait for types that are going be put into a `LookupTable`
-pub trait Lookup {
+pub trait Lookup : Sync{
 
     /// The text that will be looked at when a lookup is executed.
     fn searchable_text(&self) -> String;
@@ -195,7 +195,7 @@ impl <'a, V>LookupTable<'a, V> where V: Lookup{
     /// If no matches are found, the Iterator will immediately start returning `None`.
     /// Entries in lower buckets will be returned before entries in higher buckets.
     /// The method is case sensitive.
-    pub fn find(&'a self, search_text: &'a str) -> Box<Iterator<Item=&V> + 'a> {
+    pub fn find(&'a self, search_text: &'a str) -> Box<Iterator<Item=&V> + Send + 'a> {
         let result_iter = self.suffix_table_map.iter()
         .flat_map(move |(bucket, suffix_table)|{
             suffix_table.positions(&search_text).iter().map(move |text_position|(bucket, text_position))
