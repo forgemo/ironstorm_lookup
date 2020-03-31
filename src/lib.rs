@@ -181,7 +181,7 @@ impl <'a, A: Lookup>FromIterator<A> for LookupTable<'a, A>{
 impl <'a, V>LookupTable<'a, V> where V: Lookup{
 
     fn get_value_for_position(&self, bucket: Bucket, text_position: TextPosition) -> &V{
-        if let Some(value) = self.position_map.range(Unbounded, Included(&(bucket,(text_position as usize)))).rev().next() {
+        if let Some(value) = self.position_map.range((Unbounded, Included(&(bucket,(text_position as usize))))).rev().next() {
             let (&(_, _), value) = value;
             value
         }else {
