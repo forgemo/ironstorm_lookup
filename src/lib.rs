@@ -116,7 +116,7 @@ extern crate itertools;
 
 use suffix::SuffixTable;
 use std::collections::{BTreeMap};
-use std::collections::Bound::{Included, Unbounded};
+use std::ops::Bound::{Included, Unbounded};
 use std::iter::FromIterator;
 
 
